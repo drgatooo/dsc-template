@@ -1,4 +1,4 @@
-import { Client, Collection, type Message } from 'discord.js';
+import { Client, Collection } from 'discord.js';
 import { CommandStore, EventStore } from '@bot/stores';
 import { colors, emojis, options } from '@bot/constants';
 import { connect } from 'mongoose';
@@ -11,7 +11,6 @@ export class BotClient extends Client<true> {
 
   public commands = new CommandStore(this);
   public events = new EventStore(this);
-  public panels = new Collection<string, Message<true>>();
   public commandIds = new Collection<string, string>();
 
   private isHandlingErrors = false;
