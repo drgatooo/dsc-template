@@ -1,3 +1,4 @@
+// @ts-check
 import type {
   Node,
   Player,
@@ -6,9 +7,8 @@ import type {
   TrackExceptionEvent,
   TrackStartEvent,
   TrackStuckEvent,
-  UnresolvedTrack,
   WebSocketClosedEvent
-} from '@drgatoxd/erelajs';
+} from 'meonglink';
 import type DJS from 'discord.js';
 
 export interface MusicEvents {
@@ -21,7 +21,7 @@ export interface MusicEvents {
   nodeRaw: [payload: unknown];
   playerCreate: [player: Player];
   playerDestroy: [player: Player];
-  queueEnd: [player: Player, track: Track | UnresolvedTrack, payload: TrackEndEvent];
+  queueEnd: [player: Player, track: Track, payload: TrackEndEvent];
   playerMove: [player: Player, initChannel: string, newChannel: string];
   playerDisconnect: [player: Player, oldChannel: string];
   trackStart: [player: Player, track: Track, payload: TrackStartEvent];
