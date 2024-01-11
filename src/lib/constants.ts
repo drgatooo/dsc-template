@@ -12,6 +12,26 @@ export const options: DJS.ClientOptions = {
   shards: 'auto'
 };
 
+export const Presence = {
+  development: {
+    activities: [
+      {
+        name: 'in tests',
+        type: DJS.ActivityType.Competing
+      }
+    ] as DJS.ActivitiesOptions[]
+  },
+  production: {
+    status: 'idle' as const,
+    activities: [
+      {
+        name: '/ping',
+        type: DJS.ActivityType.Listening
+      }
+    ] as DJS.ActivitiesOptions[]
+  }
+};
+
 export const emojis = {
   success: '<:_:1000977479340654702>',
   error: '<:_:1000977481202937867>',
@@ -93,24 +113,4 @@ export const Permissions: Record<PermissionsString, string> = {
   ViewChannel: 'Leer mensajes',
   ViewGuildInsights: 'Ver información del servidor',
   SendMessagesInThreads: 'Enviar mensajes en hilos'
-};
-
-export const Presence = {
-  development: {
-    activities: [
-      {
-        name: 'in tests',
-        type: DJS.ActivityType.Competing
-      }
-    ] as DJS.ActivitiesOptions[]
-  },
-  production: {
-    status: 'idle' as const,
-    activities: [
-      {
-        name: '/ping',
-        type: DJS.ActivityType.Listening
-      }
-    ] as DJS.ActivitiesOptions[]
-  }
 };
